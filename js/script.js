@@ -78,4 +78,26 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo(0, parseInt(savedScrollPosition));
         localStorage.removeItem('scrollPosition');
     }
+
+    // Secret admin access
+    let keySequence = [];
+    let lastKeyTime = Date.now();
+    
+    document.addEventListener('keypress', function(e) {
+        const currentTime = Date.now();
+        if (currentTime - lastKeyTime > 1000) {
+            keySequence = [];
+        }
+        lastKeyTime = currentTime;
+        
+        if (e.key.toLowerCase() === 'a') {
+            keySequence.push('a');
+            if (keySequence.length === 3) {
+                window.location.href = '/admin.html';
+                keySequence = [];
+            }
+        } else {
+            keySequence = [];
+        }
+    });
 });

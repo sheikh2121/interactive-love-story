@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+        .admin-panel { display: none; }
+        .admin-panel.visible { display: block; }
+        .upload-form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .file-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .chapter-select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .caption-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .upload-btn {
+            background: #d23669;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="login-prompt">
+            <h1>404 - Page Not Found</h1>
+            <p>The page you're looking for doesn't exist.</p>
+            <div data-netlify-identity-button></div>
+        </div>
+
+        <div id="admin-panel" class="admin-panel">
+            <h1>Photo Upload</h1>
+            <form id="upload-form" class="upload-form">
+                <select id="chapter-select" class="chapter-select" required>
+                    <option value="">Select Chapter</option>
+                    <option value="chapter1">Chapter 1: How We Met</option>
+                </select>
+                <input type="file" id="photo-input" class="file-input" accept="image/*" required>
+                <input type="text" id="caption-input" class="caption-input" placeholder="Photo caption" required>
+                <button type="submit" class="upload-btn">Upload Photo</button>
+                <p id="status-message"></p>
+            </form>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
